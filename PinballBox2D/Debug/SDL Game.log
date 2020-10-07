@@ -1,8 +1,3 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Physics 2 Class 1 Handout.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  ModulePhysics.cpp
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\ModulePhysics.cpp(60,67): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\ModulePhysics.cpp(60,25): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\ModulePhysics.cpp(88,82): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\ModulePhysics.cpp(88,57): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\ModulePhysics.cpp(88,32): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\PinballBox2D\PinballBox2D\Debug\PinballBox2D.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Physics 2 Class 1 Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  ModuleInput.cpp
+  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Escritorio\PinballBox2D\PinballBox2D\Debug\PinballBox2D.exe
