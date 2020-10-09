@@ -1,4 +1,0 @@
-C:\Users\davidlm7\Documents\GitHub\PinballBox2D\PinballBox2D\Debug\PinballBox2D.exe
-C:\Users\davidlm7\Documents\GitHub\PinballBox2D\PinballBox2D\Debug\PinballBox2D.pdb
-C:\Users\adria\OneDrive\Escritorio\PinballBox2D\PinballBox2D\Debug\PinballBox2D.exe
-C:\Users\adria\OneDrive\Escritorio\PinballBox2D\PinballBox2D\Debug\PinballBox2D.pdb

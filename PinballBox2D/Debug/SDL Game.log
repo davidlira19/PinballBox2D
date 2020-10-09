@@ -1,3 +1,0 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Physics 2 Class 1 Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  ModuleInput.cpp
-  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Escritorio\PinballBox2D\PinballBox2D\Debug\PinballBox2D.exe
