@@ -32,9 +32,12 @@ public:
 	bool CleanUp();
 
 	// TODO 4: Move body creation to 3 functions to create circles, rectangles and chains
-
+	void CreateCircles();
+	void CreateRectangles();
+	void CreateChains();
 private:
 
 	bool debug;
 	b2World* world;
 };
+
