@@ -1,6 +1,2 @@
-﻿  Application.cpp
-  ModulePhysics.cpp
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModulePhysics.cpp(35,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-  ModuleSceneIntro.cpp
-  Generando código...
-  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
+﻿  ModuleSceneIntro.cpp
+  SDL Game.vcxproj -> B:\GITHUB\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe

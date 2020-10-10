@@ -4,3 +4,5 @@ D:\Descargas\BOX2D\Debug\2D Physics - class 2.exe
 D:\Descargas\BOX2D\Debug\2D Physics - class 2.pdb
 C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
 C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.pdb
+B:\GITHUB\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
+B:\GITHUB\PinballBox2D\BOX2D\Debug\2D Physics - class 2.pdb

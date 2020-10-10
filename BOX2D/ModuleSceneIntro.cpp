@@ -106,6 +106,52 @@ void ModulePhysics::CreateChains()
 
 	chain.CreateLoop(points, 12);
 
+	/*
+	b2Vec2 pepefrog[41];
+	pepefrog[0] = { PIXEL_TO_METERS(86 / 5), PIXEL_TO_METERS(586 / 5) };
+	pepefrog[1] = { PIXEL_TO_METERS(39 / 5), PIXEL_TO_METERS(541 / 5) };
+	pepefrog[2] = { PIXEL_TO_METERS(16 / 5), PIXEL_TO_METERS(462 / 5) };
+	pepefrog[3] = { PIXEL_TO_METERS(23 / 5), PIXEL_TO_METERS(402 / 5) };
+	pepefrog[4] = { PIXEL_TO_METERS(61 / 5), PIXEL_TO_METERS(362 / 5) };
+	pepefrog[5] = { PIXEL_TO_METERS(109 / 5), PIXEL_TO_METERS(238 / 5) };
+	pepefrog[6] = { PIXEL_TO_METERS(145 / 5), PIXEL_TO_METERS(210 / 5) };
+	pepefrog[7] = { PIXEL_TO_METERS(205 / 5), PIXEL_TO_METERS(112 / 5) };
+	pepefrog[8] = { PIXEL_TO_METERS(275 / 5), PIXEL_TO_METERS(55 / 5) };
+	pepefrog[9] = { PIXEL_TO_METERS(364 / 5), PIXEL_TO_METERS(50 / 5) };
+	pepefrog[10] = { PIXEL_TO_METERS(433 / 5), PIXEL_TO_METERS(72 / 5) };
+	pepefrog[11] = { PIXEL_TO_METERS(452 / 5), PIXEL_TO_METERS(98 / 5) };
+	pepefrog[12] = { PIXEL_TO_METERS(553 / 5), PIXEL_TO_METERS(56 / 5) };
+	pepefrog[13] = { PIXEL_TO_METERS(617 / 5), PIXEL_TO_METERS(65 / 5) };
+	pepefrog[14] = { PIXEL_TO_METERS(660 / 5), PIXEL_TO_METERS(121 / 5) };
+	pepefrog[15] = { PIXEL_TO_METERS(662 / 5), PIXEL_TO_METERS(147 / 5) };
+	pepefrog[16] = { PIXEL_TO_METERS(739 / 5), PIXEL_TO_METERS(199 / 5) };
+	pepefrog[17] = { PIXEL_TO_METERS(754 / 5), PIXEL_TO_METERS(223 / 5) };
+	pepefrog[18] = { PIXEL_TO_METERS(774 / 5), PIXEL_TO_METERS(245 / 5) };
+	pepefrog[19] = { PIXEL_TO_METERS(766 / 5), PIXEL_TO_METERS(259 / 5) };
+	pepefrog[20] = { PIXEL_TO_METERS(770 / 5), PIXEL_TO_METERS(281 / 5) };
+	pepefrog[21] = { PIXEL_TO_METERS(757 / 5), PIXEL_TO_METERS(293 / 5) };
+	pepefrog[22] = { PIXEL_TO_METERS(751 / 5), PIXEL_TO_METERS(309 / 5) };
+	pepefrog[23] = { PIXEL_TO_METERS(733 / 5), PIXEL_TO_METERS(315 / 5) };
+	pepefrog[24] = { PIXEL_TO_METERS(706 / 5), PIXEL_TO_METERS(341 / 5) };
+	pepefrog[25] = { PIXEL_TO_METERS(671 / 5), PIXEL_TO_METERS(355 / 5) };
+	pepefrog[26] = { PIXEL_TO_METERS(681 / 5), PIXEL_TO_METERS(386 / 5) };
+	pepefrog[27] = { PIXEL_TO_METERS(713 / 5), PIXEL_TO_METERS(419 / 5) };
+	pepefrog[28] = { PIXEL_TO_METERS(730 / 5), PIXEL_TO_METERS(465 / 5) };
+	pepefrog[29] = { PIXEL_TO_METERS(740 / 5), PIXEL_TO_METERS(469 / 5) };
+	pepefrog[30] = { PIXEL_TO_METERS(743 / 5), PIXEL_TO_METERS(489 / 5) };
+	pepefrog[31] = { PIXEL_TO_METERS(724 / 5), PIXEL_TO_METERS(509 / 5) };
+	pepefrog[32] = { PIXEL_TO_METERS(708 / 5), PIXEL_TO_METERS(513 / 5) };
+	pepefrog[33] = { PIXEL_TO_METERS(703 / 5), PIXEL_TO_METERS(542 / 5) };
+	pepefrog[34] = { PIXEL_TO_METERS(669 / 5), PIXEL_TO_METERS(562 / 5) };
+	pepefrog[35] = { PIXEL_TO_METERS(602 / 5), PIXEL_TO_METERS(609 / 5) };
+	pepefrog[36] = { PIXEL_TO_METERS(546 / 5), PIXEL_TO_METERS(630 / 5) };
+	pepefrog[37] = { PIXEL_TO_METERS(537 / 5), PIXEL_TO_METERS(646 / 5) };
+	pepefrog[38] = { PIXEL_TO_METERS(413 / 5), PIXEL_TO_METERS(677 / 5) };
+	pepefrog[39] = { PIXEL_TO_METERS(223 / 5), PIXEL_TO_METERS(648 / 5) };
+	pepefrog[40] = { PIXEL_TO_METERS(86 / 5), PIXEL_TO_METERS(586 / 5) };
+
+	chain.CreateLoop(pepefrog, 41);*/
+
 	ch->CreateFixture(&ChainFixture);
 }
 // Update: draw background
