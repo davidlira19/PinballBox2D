@@ -1,2 +1,31 @@
-﻿  ModuleSceneIntro.cpp
-  SDL Game.vcxproj -> C:\Users\davidlm7\Documents\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
+﻿  Application.cpp
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C3646: 'requestPosition': unknown override specifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C2059: syntax error: '('
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,27): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(19,15): error C3646: 'list': unknown override specifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(19,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  ModulePhysics.cpp
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C3646: 'requestPosition': unknown override specifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C2059: syntax error: '('
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,27): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.cpp(36,8): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ModulePlayer.cpp
+  ModuleSceneIntro.cpp
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(19,15): error C3646: 'list': unknown override specifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(19,15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(26,12): error C2143: syntax error: missing ';' before '*'
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(26,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(26,21): error C2238: unexpected token(s) preceding ';'
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(32,29): error C2061: syntax error: identifier 'smallClass'
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(29,4): error C2065: 'arr': undeclared identifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(34,8): error C2065: 'arr': undeclared identifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(35,5): error C2065: 'arr': undeclared identifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.h(35,14): error C2065: 'pointer': undeclared identifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C3646: 'requestPosition': unknown override specifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,24): error C2059: syntax error: '('
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.h(27,27): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(143,3): error C2065: 'list': undeclared identifier
+C:\Users\unaiddgs\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(150,3): error C2065: 'list': undeclared identifier
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generating Code...

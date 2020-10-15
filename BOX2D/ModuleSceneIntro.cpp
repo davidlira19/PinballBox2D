@@ -29,7 +29,7 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	circle = App->textures->Load("pinball/wheel.png"); 
+	circle = App->textures->Load("pinball/wheel.png");
 	box = App->textures->Load("pinball/crate.png");
 	rick = App->textures->Load("pinball/rick_head.png");
 
@@ -43,7 +43,7 @@ bool ModuleSceneIntro::CleanUp()
 
 	return true;
 }
-void ModulePhysics::CreateCircles()
+smallClass* ModulePhysics::CreateCircles()
 {
 	b2BodyDef body;
 	body.type = b2_dynamicBody;
@@ -58,8 +58,11 @@ void ModulePhysics::CreateCircles()
 	fixture.shape = &shape;
 
 	b->CreateFixture(&fixture);
+
+	smallClass nodo(b);
+	return &nodo;
 }
-void ModulePhysics::CreateRectangles()
+smallClass* ModulePhysics::CreateRectangles()
 {
 	b2BodyDef boxBody;
 	boxBody.type = b2_dynamicBody;
@@ -75,8 +78,11 @@ void ModulePhysics::CreateRectangles()
 
 	polygon.SetAsBox(PIXEL_TO_METERS(20), PIXEL_TO_METERS(10), b2Vec2(0, 0), 0);//ground
 	bo->CreateFixture(&fixture);
+
+	smallClass nodo(bo);
+	return &nodo;
 }
-void ModulePhysics::CreateChains()
+smallClass* ModulePhysics::CreateChains()
 {
 	b2BodyDef ChainBody;
 	ChainBody.type = b2_dynamicBody;
@@ -89,7 +95,12 @@ void ModulePhysics::CreateChains()
 
 	ChainFixture.shape = &chain;
 	ChainFixture.density = 1.0f;
-	
+
+	b2Vec2 points[12];
+
+
+	chain.CreateLoop(points, 12);
+
 	b2Vec2 pepefrog[23];
 	pepefrog[0] = { PIXEL_TO_METERS(780 / 5), PIXEL_TO_METERS(843 / 5) };
 	pepefrog[1] = { PIXEL_TO_METERS(568 / 5), PIXEL_TO_METERS(881 / 5) };
@@ -118,6 +129,9 @@ void ModulePhysics::CreateChains()
 	chain.CreateLoop(pepefrog, 23);
 
 	ch->CreateFixture(&ChainFixture);
+
+	smallClass nodo(ch);
+	return &nodo;
 }
 // Update: draw background
 update_status ModuleSceneIntro::Update()
@@ -125,14 +139,15 @@ update_status ModuleSceneIntro::Update()
 	// TODO 5: Move all creation of bodies on 1,2,3 key press here in the scene
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		App->physics->CreateCircles();
+		//App->physics->CreateCircles();
+		list.savepointer(App->physics->CreateCircles());
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		// TODO 1: When pressing 2, create a box on the mouse position
 
-		App->physics->CreateRectangles();
+		list.savepointer(App->physics->CreateRectangles());
 		// TODO 2: To have the box behave normally, set fixture's density to 1.0f
 
 	}
@@ -160,6 +175,7 @@ update_status ModuleSceneIntro::Update()
 		*/
 	}
 	// TODO 7: Draw all the circles using "circle" texture
+	//App->renderer->Blit();
 
 	return UPDATE_CONTINUE;
 }

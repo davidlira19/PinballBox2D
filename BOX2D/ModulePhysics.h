@@ -18,8 +18,18 @@ class b2Body;
 // and has a method to request the position
 // then write the implementation in the .cpp
 // Then make your circle creation function to return a pointer to that class
+class  smallClass {
+public:
+	b2Body* pointer;
+	smallClass(b2Body* body) {
+		pointer = body;
+	}
+	b2Vec2 requestPosition() {
+		return pointer->GetPosition();
+	}
 
 
+};
 
 class ModulePhysics : public Module
 {
@@ -33,9 +43,9 @@ public:
 	bool CleanUp();
 
 	// TODO 4: Move body creation to 3 functions to create circles, rectangles and chains
-	void CreateCircles();
-	void CreateRectangles();
-	void CreateChains();
+	smallClass* CreateCircles();
+	smallClass* CreateRectangles();
+	smallClass* CreateChains();
 private:
 
 	bool debug;
