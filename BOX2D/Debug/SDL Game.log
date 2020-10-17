@@ -1,8 +1,5 @@
-﻿  ModulePhysics.cpp
-  ModuleSceneIntro.cpp
-  Generando código...
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModulePhysics.cpp(38,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(66): warning C4172: devolución de dirección de la variable local o temporal: nodo
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(86): warning C4172: devolución de dirección de la variable local o temporal: nodo
-C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(150): warning C4172: devolución de dirección de la variable local o temporal: nodo
-  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
+﻿  ModuleSceneIntro.cpp
+C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(66): warning C4172: devolución de dirección de la variable local o temporal: nodo
+C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(86): warning C4172: devolución de dirección de la variable local o temporal: nodo
+C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(145): warning C4172: devolución de dirección de la variable local o temporal: nodo
+  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe

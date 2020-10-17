@@ -112,11 +112,6 @@ smallClass* ModulePhysics::CreateChains()
 	ChainFixture.shape = &chain;
 	ChainFixture.density = 1.0f;
 
-	b2Vec2 points[12];
-
-
-	chain.CreateLoop(points, 12);
-
 	b2Vec2 pepefrog[23];
 	pepefrog[0] = { PIXEL_TO_METERS(780 / 5), PIXEL_TO_METERS(843 / 5) };
 	pepefrog[1] = { PIXEL_TO_METERS(568 / 5), PIXEL_TO_METERS(881 / 5) };
