@@ -4,7 +4,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-//#include "ModulePhysics.h"
+#include "ModulePhysics.h"
 #include "Box2D/Box2D/Box2D.h"
 
 #ifdef _DEBUG
@@ -144,10 +144,11 @@ smallClass* ModulePhysics::CreateChains()
 	smallClass nodo(ch);
 	return &nodo;
 }
+
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-
+	SDL_Rect rueda = {0,0,50,50};
 	// TODO 5: Move all creation of bodies on 1,2,3 key press here in the scene
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
@@ -188,7 +189,7 @@ update_status ModuleSceneIntro::Update()
 		*/
 	}
 	// TODO 7: Draw all the circles using "circle" texture
-	//App->renderer->Blit();
-
+	
+	
 	return UPDATE_CONTINUE;
 }

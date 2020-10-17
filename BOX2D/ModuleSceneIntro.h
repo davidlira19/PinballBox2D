@@ -12,7 +12,6 @@ public:
 	smallClass* arr[50];
 	bodyList();
 	void savepointer(smallClass* pointer);
-
 };
 class ModuleSceneIntro : public Module
 {

@@ -1,4 +1,6 @@
-﻿  ModuleSceneIntro.cpp
+﻿  Application.cpp
+  ModuleSceneIntro.cpp
+  Generando código...
 C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(66): warning C4172: devolución de dirección de la variable local o temporal: nodo
 C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(86): warning C4172: devolución de dirección de la variable local o temporal: nodo
 C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(145): warning C4172: devolución de dirección de la variable local o temporal: nodo
