@@ -4,7 +4,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-#include "ModulePhysics.h"
+//#include "ModulePhysics.h"
 #include "Box2D/Box2D/Box2D.h"
 
 #ifdef _DEBUG
@@ -12,10 +12,13 @@
 #else
 #pragma comment( lib, "Box2D/libx86/Release/Box2D.lib" )
 #endif
-
+class ModulePhysics;
+class smallClass;
+//class bodyList;
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	circle = box = rick = NULL;
+
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
@@ -82,6 +85,19 @@ smallClass* ModulePhysics::CreateRectangles()
 	smallClass nodo(bo);
 	return &nodo;
 }
+bodyList::bodyList() {
+	for (int a = 0; a < 50; a++) {
+		arr[a] = nullptr;
+	}
+}
+void bodyList::savepointer(smallClass* pointer) {
+	for (int a = 0; a < 50; a++) {
+		if (arr[a] == nullptr) {
+			arr[a] = pointer;
+			break;
+		}
+	}
+}
 smallClass* ModulePhysics::CreateChains()
 {
 	b2BodyDef ChainBody;
@@ -136,11 +152,13 @@ smallClass* ModulePhysics::CreateChains()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
+
 	// TODO 5: Move all creation of bodies on 1,2,3 key press here in the scene
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
 		//App->physics->CreateCircles();
 		list.savepointer(App->physics->CreateCircles());
+		
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
@@ -154,7 +172,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
-		App->physics->CreateChains();
+		list.savepointer(App->physics->CreateChains());
 		// TODO 3: Create a chain shape using those vertices
 		// remember to convert them from pixels to meters!
 		/*

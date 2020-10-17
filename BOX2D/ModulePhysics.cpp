@@ -12,7 +12,9 @@
 #else
 #pragma comment( lib, "Box2D/libx86/Release/Box2D.lib" )
 #endif
-
+//class  smallClass;
+class b2World;
+class b2Body;
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	world = NULL;
@@ -145,7 +147,9 @@ update_status ModulePhysics::PostUpdate()
 
 	return UPDATE_CONTINUE;
 }
-
+smallClass::smallClass(b2Body* body) {
+	pointer = body;
+}
 
 // Called before quitting
 bool ModulePhysics::CleanUp()

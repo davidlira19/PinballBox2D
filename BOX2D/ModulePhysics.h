@@ -21,12 +21,10 @@ class b2Body;
 class  smallClass {
 public:
 	b2Body* pointer;
-	smallClass(b2Body* body) {
-		pointer = body;
-	}
-	b2Vec2 requestPosition() {
+	smallClass(b2Body* body);
+	/*b2Vec2 requestPosition() {
 		return pointer->GetPosition();
-	}
+	}*/
 
 
 };
