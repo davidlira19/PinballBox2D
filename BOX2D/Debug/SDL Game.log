@@ -1,7 +1,8 @@
-﻿  Application.cpp
-  ModuleSceneIntro.cpp
-  Generando código...
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(66): warning C4172: devolución de dirección de la variable local o temporal: nodo
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(86): warning C4172: devolución de dirección de la variable local o temporal: nodo
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(145): warning C4172: devolución de dirección de la variable local o temporal: nodo
-  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe
+﻿  ModuleSceneIntro.cpp
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\Box2D\Box2D\Common\b2Math.h(54,1): warning C4099: 'b2Vec2': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\Box2D\Box2D\Common\b2Math.h(53): message : vea la declaración de 'b2Vec2'
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(199,107): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(199,67): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(146): warning C4172: devolución de dirección de la variable local o temporal: nodo
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\ModuleSceneIntro.cpp(88): warning C4172: devolución de dirección de la variable local o temporal: nodo
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\PinballBox2D\BOX2D\Debug\2D Physics - class 2.exe

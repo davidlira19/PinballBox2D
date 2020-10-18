@@ -15,6 +15,7 @@
 //class  smallClass;
 class b2World;
 class b2Body;
+class b2Vec2;
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	world = NULL;
@@ -53,7 +54,13 @@ bool ModulePhysics::Start()
 
 	return true;
 }
-
+b2Vec2 smallClass::requestPosition() {
+	b2Vec2 pos;
+	pos=pointer->GetPosition();
+	pos.x = METERS_TO_PIXELS(pos.x);
+	pos.y = METERS_TO_PIXELS(pos.y);
+	return pos;
+}
 // 
 update_status ModulePhysics::PreUpdate()
 {
@@ -147,10 +154,15 @@ update_status ModulePhysics::PostUpdate()
 
 	return UPDATE_CONTINUE;
 }
+smallClass::smallClass() {
+
+}
 smallClass::smallClass(b2Body* body) {
 	pointer = body;
 }
-
+double smallClass::getrotation() {
+	//double rot=(double)RADTODEG*
+}
 // Called before quitting
 bool ModulePhysics::CleanUp()
 {

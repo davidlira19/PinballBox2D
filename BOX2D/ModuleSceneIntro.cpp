@@ -18,7 +18,7 @@ class smallClass;
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	circle = box = rick = NULL;
-
+	//list = new bodyList();
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
@@ -61,9 +61,12 @@ smallClass* ModulePhysics::CreateCircles()
 	fixture.shape = &shape;
 
 	b->CreateFixture(&fixture);
-
+	smallClass* auxpointer;
+	auxpointer = new smallClass();
+	auxpointer->pointer = b;
+	
 	smallClass nodo(b);
-	return &nodo;
+	return auxpointer;
 }
 smallClass* ModulePhysics::CreateRectangles()
 {
@@ -81,23 +84,22 @@ smallClass* ModulePhysics::CreateRectangles()
 
 	polygon.SetAsBox(PIXEL_TO_METERS(20), PIXEL_TO_METERS(10), b2Vec2(0, 0), 0);//ground
 	bo->CreateFixture(&fixture);
-
 	smallClass nodo(bo);
 	return &nodo;
 }
-bodyList::bodyList() {
-	for (int a = 0; a < 50; a++) {
-		arr[a] = nullptr;
-	}
-}
-void bodyList::savepointer(smallClass* pointer) {
-	for (int a = 0; a < 50; a++) {
-		if (arr[a] == nullptr) {
-			arr[a] = pointer;
-			break;
-		}
-	}
-}
+//bodyList::bodyList() {
+//	for (int a = 0; a < 50; a++) {
+//		arr[a] = nullptr;
+//	}
+//}
+//void bodyList::savepointer(smallClass* pointer) {
+//	for (int a = 0; a < 50; a++) {
+//		if (arr[a] == nullptr) {
+//			arr[a] = pointer;
+//			break;
+//		}
+//	}
+//}
 smallClass* ModulePhysics::CreateChains()
 {
 	b2BodyDef ChainBody;
@@ -140,7 +142,6 @@ smallClass* ModulePhysics::CreateChains()
 	chain.CreateLoop(pepefrog, 23);
 
 	ch->CreateFixture(&ChainFixture);
-
 	smallClass nodo(ch);
 	return &nodo;
 }
@@ -148,27 +149,31 @@ smallClass* ModulePhysics::CreateChains()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-	SDL_Rect rueda = {0,0,50,50};
+	SDL_Rect rueda = { 0,0,50,50 };
 	// TODO 5: Move all creation of bodies on 1,2,3 key press here in the scene
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
 		//App->physics->CreateCircles();
-		list.savepointer(App->physics->CreateCircles());
-		
+		//list->savepointer(App->physics->CreateCircles());
+		smallClass* circle= App->physics->CreateCircles();
+		circleList.add(circle);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		// TODO 1: When pressing 2, create a box on the mouse position
 
-		list.savepointer(App->physics->CreateRectangles());
+		//list->savepointer(App->physics->CreateRectangles());
 		// TODO 2: To have the box behave normally, set fixture's density to 1.0f
-
+		smallClass* rectangle = App->physics->CreateRectangles();
+		rectangleList.add(rectangle);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
-		list.savepointer(App->physics->CreateChains());
+		smallClass* pepe = App->physics->CreateChains();
+		elpepeList.add(pepe);
+		//list->savepointer(App->physics->CreateChains());
 		// TODO 3: Create a chain shape using those vertices
 		// remember to convert them from pixels to meters!
 		/*
@@ -189,7 +194,13 @@ update_status ModuleSceneIntro::Update()
 		*/
 	}
 	// TODO 7: Draw all the circles using "circle" texture
+	p2List_item <smallClass*>* itemcircle = circleList.getFirst();
+	while (itemcircle != nullptr) {
+		App->renderer->Blit(circle,itemcircle->data->requestPosition().x,itemcircle->data->requestPosition().y);
+		itemcircle = itemcircle->next;
+	}
 	
 	
 	return UPDATE_CONTINUE;
 }
+

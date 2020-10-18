@@ -13,19 +13,21 @@
 
 class b2World;
 class b2Body;
-
+class b2Vec2;
 // TODO 6: Create a small class that keeps a pointer to tghe b2Body
 // and has a method to request the position
 // then write the implementation in the .cpp
 // Then make your circle creation function to return a pointer to that class
+
 class  smallClass {
 public:
-	b2Body* pointer;
-	smallClass(b2Body* body);
-	/*b2Vec2 requestPosition() {
-		return pointer->GetPosition();
-	}*/
 
+
+	b2Body* pointer=nullptr;
+	smallClass(b2Body* body);
+	smallClass();
+	b2Vec2 requestPosition();
+	double getrotation();
 
 };
 
