@@ -161,7 +161,8 @@ smallClass::smallClass(b2Body* body) {
 	pointer = body;
 }
 double smallClass::getrotation() {
-	//double rot=(double)RADTODEG*
+	double rot = (double)(RADTODEG * pointer->GetTransform().q.GetAngle());
+	return rot;
 }
 // Called before quitting
 bool ModulePhysics::CleanUp()

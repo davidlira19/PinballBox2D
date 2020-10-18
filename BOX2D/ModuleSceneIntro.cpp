@@ -84,8 +84,12 @@ smallClass* ModulePhysics::CreateRectangles()
 
 	polygon.SetAsBox(PIXEL_TO_METERS(20), PIXEL_TO_METERS(10), b2Vec2(0, 0), 0);//ground
 	bo->CreateFixture(&fixture);
+	smallClass* auxpointer;
+	auxpointer = new smallClass();
+	auxpointer->pointer = bo;
+
 	smallClass nodo(bo);
-	return &nodo;
+	return auxpointer;
 }
 //bodyList::bodyList() {
 //	for (int a = 0; a < 50; a++) {
@@ -194,12 +198,19 @@ update_status ModuleSceneIntro::Update()
 		*/
 	}
 	// TODO 7: Draw all the circles using "circle" texture
+	SDL_Rect circletext{ 0,0,50,50 };
 	p2List_item <smallClass*>* itemcircle = circleList.getFirst();
 	while (itemcircle != nullptr) {
-		App->renderer->Blit(circle,itemcircle->data->requestPosition().x,itemcircle->data->requestPosition().y);
+		App->renderer->Blit(circle,itemcircle->data->requestPosition().x-25,itemcircle->data->requestPosition().y-25,&circletext,1.0f,itemcircle->data->getrotation());
 		itemcircle = itemcircle->next;
 	}
-	
+
+	SDL_Rect rect{0,0,40,20};
+	p2List_item <smallClass*>* itemrectangle = rectangleList.getFirst();
+	while (itemrectangle != nullptr) {
+		App->renderer->Blit(box, itemrectangle->data->requestPosition().x-20, itemrectangle->data->requestPosition().y-10, &rect, 1.0f, itemrectangle->data->getrotation());
+		itemrectangle = itemrectangle->next;
+	}
 	
 	return UPDATE_CONTINUE;
 }
