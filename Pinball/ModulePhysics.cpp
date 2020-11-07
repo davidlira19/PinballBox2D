@@ -60,10 +60,19 @@ bool ModulePhysics::Start()
 // 
 update_status ModulePhysics::PreUpdate()
 {
+	b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
+	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000))
+	{
+		ball->SetTransform({PIXEL_TO_METERS(485),PIXEL_TO_METERS(975)},0);
+		ballActivated = true;
+	}
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP)
 	{
-		b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
-		ball->ApplyForce({ 0,-250 }, ball->GetPosition(), true);
+		if (ballActivated == true)
+		{
+			ball->ApplyForce({ 0,-250 }, ball->GetPosition(), true);
+			ballActivated = false;
+		}
 	}
 
 	world->Step(1.0f / 60.0f, 6, 2);

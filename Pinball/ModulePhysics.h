@@ -55,6 +55,7 @@ private:
 
 	bool isClicked = false;
 	bool debug;
+	bool ballActivated = true;
 	b2World* world;
 	b2MouseJoint* mouse_joint;
 	b2Body* ground;
