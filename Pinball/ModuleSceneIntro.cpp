@@ -214,6 +214,8 @@ bool ModuleSceneIntro::Start()
 
 	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 12));
 
+	circles.add(App->physics->CreateCircle(485, 975, 12));
+
 	return ret;
 }
 

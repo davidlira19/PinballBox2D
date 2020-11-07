@@ -3,6 +3,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePhysics.h"
+#include "ModuleSceneIntro.h"
 #include "p2Point.h"
 #include "math.h"
 
@@ -59,6 +60,12 @@ bool ModulePhysics::Start()
 // 
 update_status ModulePhysics::PreUpdate()
 {
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP)
+	{
+		b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
+		ball->ApplyForce({ 0,-250 }, ball->GetPosition(), true);
+	}
+
 	world->Step(1.0f / 60.0f, 6, 2);
 
 	for(b2Contact* c = world->GetContactList(); c; c = c->GetNext())
@@ -207,7 +214,7 @@ update_status ModulePhysics::PostUpdate()
 				{
 					b2CircleShape* shape = (b2CircleShape*)f->GetShape();
 					b2Vec2 pos = f->GetBody()->GetPosition();
-					App->renderer->DrawCircle(METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y), METERS_TO_PIXELS(shape->m_radius), 255, 255, 255);
+					App->renderer->DrawCircle(METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y), METERS_TO_PIXELS(shape->m_radius), 255, 0, 0);
 				}
 				break;
 
