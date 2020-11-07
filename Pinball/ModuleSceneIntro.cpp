@@ -201,7 +201,7 @@ bool ModuleSceneIntro::Start()
 	162, 846,
 	};
 
-	walls.add(App->physics->CreateChain(-3, 0, pieza_izq_grande, 14));
+	walls.add(App->physics->CreateChain(-4, 0, pieza_izq_grande, 14));
 
 	int pieza_der_peq[12] = {
 	314, 730,
@@ -214,7 +214,13 @@ bool ModuleSceneIntro::Start()
 
 	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 12));
 
-	circles.add(App->physics->CreateCircle(485, 975, 12));
+	walls.add(App->physics->CreateStaticCircle(152, 445, 34));
+
+	walls.add(App->physics->CreateStaticCircle(336, 445, 34));
+
+	walls.add(App->physics->CreateStaticCircle(237, 575, 34));
+
+	circles.add(App->physics->CreateCircle(485, 975, 11));
 
 	return ret;
 }
