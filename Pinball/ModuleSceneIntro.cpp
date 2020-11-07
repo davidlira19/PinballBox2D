@@ -32,7 +32,52 @@ bool ModuleSceneIntro::Start()
 	bonus_fx = App->audio->LoadFx("pinball/bonus.wav");
 
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
-
+	int pinball_fondo[84] = {
+			95, -68,
+			96, -107,
+			81, -118,
+			82, -133,
+			107, -149,
+			141, -173,
+			178, -206,
+			210, -233,
+			253, -273,
+			255, -286,
+			273, -293,
+			270, -339,
+			270, -668,
+			291, -671,
+			288, -68,
+			320, -68,
+			322, -780,
+			294, -839,
+			259, -912,
+			216, -961,
+			151, -1006,
+			82, -1025,
+			17, -1015,
+			-27, -990,
+			-62, -960,
+			-98, -906,
+			-134, -851,
+			-167, -796,
+			-169, -581,
+			-147, -553,
+			-151, -299,
+			-138, -290,
+			-135, -278,
+			-122, -261,
+			-98, -238,
+			-71, -215,
+			-38, -186,
+			4, -153,
+			37, -131,
+			35, -113,
+			23, -107,
+			23, -68
+	};
+	//-172, -1062
+	walls.add(App->physics->CreateChain(172, 1062, pinball_fondo, 84));
 	return ret;
 }
 
@@ -58,7 +103,7 @@ update_status ModuleSceneIntro::Update()
 
 	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 25));
+		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 13));
 		circles.getLast()->data->listener = this;
 	}
 
@@ -70,7 +115,7 @@ update_status ModuleSceneIntro::Update()
 	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		// Pivot 0, 0
-		int rick_head[64] = {
+		/*int rick_head[64] = {
 			14, 36,
 			42, 40,
 			40, 0,
@@ -105,7 +150,7 @@ update_status ModuleSceneIntro::Update()
 			30, 62
 		};
 
-		ricks.add(App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY(), rick_head, 64));
+		walls.add(App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY(), rick_head, 64));*/
 	}
 
 	// Prepare for raycast ------------------------------------------------------
@@ -129,7 +174,7 @@ update_status ModuleSceneIntro::Update()
 		c = c->next;
 	}
 
-	c = boxes.getFirst();
+	/*c = boxes.getFirst();
 
 	while(c != NULL)
 	{
@@ -145,7 +190,7 @@ update_status ModuleSceneIntro::Update()
 		c = c->next;
 	}
 
-	c = ricks.getFirst();
+	c = walls.getFirst();
 
 	while(c != NULL)
 	{
@@ -153,7 +198,7 @@ update_status ModuleSceneIntro::Update()
 		c->data->GetPosition(x, y);
 		App->renderer->Blit(rick, x, y, NULL, 1.0f, c->data->GetRotation());
 		c = c->next;
-	}
+	}*/
 
 	// ray -----------------
 	if(ray_on == true)
