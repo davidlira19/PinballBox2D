@@ -30,7 +30,7 @@ bool ModuleSceneIntro::Start()
 	rick = App->textures->Load("pinball/rick_head.png");
 	background = App->textures->Load("pinball/pinball_fondo.png");
 	bonus_fx = App->audio->LoadFx("pinball/bonus.wav");
-
+	music = App->audio->PlayMusic("pinball/spongebob_music.ogg");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 	int pinball_fondo[84] = {
 			95, -68,
