@@ -78,6 +78,142 @@ bool ModuleSceneIntro::Start()
 	};
 	//-172, -1062
 	walls.add(App->physics->CreateChain(172, 1062, pinball_fondo, 84));
+
+	int medusa[52] = {
+	180, 343,
+	184, 323,
+	205, 290,
+	208, 258,
+	193, 248,
+	194, 237,
+	180, 224,
+	177, 205,
+	187, 175,
+	202, 153,
+	224, 139,
+	253, 133,
+	278, 145,
+	299, 162,
+	310, 188,
+	309, 212,
+	295, 231,
+	295, 242,
+	274, 253,
+	270, 273,
+	269, 297,
+	281, 323,
+	290, 342,
+	284, 357,
+	258, 354,
+	209, 360,
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, medusa, 52));
+
+	int coral_der[30] = {
+	430, 445,
+	417, 440,
+	419, 390,
+	410, 366,
+	425, 317,
+	428, 296,
+	417, 262,
+	425, 254,
+	445, 289,
+	452, 328,
+	463, 343,
+	463, 370,
+	460, 404,
+	437, 417,
+	431, 435
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, coral_der, 30));
+
+	int coral_izq[30] = {
+	64, 446,
+	79, 437,
+	78, 388,
+	88, 362,
+	69, 314,
+	71, 275,
+	81, 258,
+	74, 254,
+	44, 303,
+	41, 323,
+	31, 339,
+	28, 373,
+	37, 403,
+	59, 416,
+	63, 436
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, coral_izq, 30));
+
+	int obstaculo_der[8] = {
+	289, 684,
+	326, 607,
+	335, 660,
+	299, 693,
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, obstaculo_der, 8));
+
+	int obstaculo_izq[8] = {
+	172, 689,
+	180, 682,
+	137, 610,
+	135, 662,
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, obstaculo_izq, 8));
+
+	int pieza_der_grande[14] = {
+	295, 830,
+	295, 820,
+	402, 726,
+	402, 556,
+	417, 556,
+	417, 740,
+	307, 836,
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, pieza_der_grande, 14));
+
+	int pieza_izq_peq[12] = {
+	153, 738,
+	101, 694,
+	101, 601,
+	90, 602,
+	88, 698,
+	145, 744,
+	};
+
+	walls.add(App->physics->CreateChain(3, 0, pieza_izq_peq, 12));
+
+	int pieza_izq_grande[14] = {
+	171, 840,
+	170, 828,
+	70, 739,
+	70, 565,
+	54, 566,
+	55, 750,
+	162, 846,
+	};
+
+	walls.add(App->physics->CreateChain(-3, 0, pieza_izq_grande, 14));
+
+	int pieza_der_peq[12] = {
+	314, 730,
+	366, 684,
+	366, 594,
+	376, 594,
+	376, 692,
+	321, 738,
+	};
+
+	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 12));
+
 	return ret;
 }
 
@@ -103,7 +239,7 @@ update_status ModuleSceneIntro::Update()
 
 	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 13));
+		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 11));
 		circles.getLast()->data->listener = this;
 	}
 
