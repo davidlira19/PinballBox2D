@@ -33,4 +33,10 @@ public:
 	int music;
 	p2Point<int> ray;
 	bool ray_on;
+
+	int Lifes;
+	int Points;
+	int maxPoints;
+	int prevPoints;
+	bool dead;
 };

@@ -60,11 +60,28 @@ bool ModulePhysics::Start()
 // 
 update_status ModulePhysics::PreUpdate()
 {
+	LOG("Points: %d --- max: %d --- prev: %d", App->scene_intro->Points, App->scene_intro->maxPoints, App->scene_intro->prevPoints);
 	b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
 	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000))
 	{
-		ball->SetTransform({PIXEL_TO_METERS(485),PIXEL_TO_METERS(975)},0);
-		ballActivated = true;
+		if (App->scene_intro->Lifes > 1)
+		{
+			ball->SetTransform({ PIXEL_TO_METERS(485),PIXEL_TO_METERS(975) }, 0);
+			ballActivated = true;
+		}
+		if (App->scene_intro->Lifes >= 1)
+		{
+			if (App->scene_intro->Lifes <= 1) 
+				App->scene_intro->dead = true;
+
+			App->scene_intro->prevPoints = App->scene_intro->Points;
+			if (App->scene_intro->Points > App->scene_intro->maxPoints)
+			{
+				App->scene_intro->maxPoints = App->scene_intro->Points;
+			}
+			App->scene_intro->Points = 0;
+			App->scene_intro->Lifes--;
+		}
 	}
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP)
 	{
