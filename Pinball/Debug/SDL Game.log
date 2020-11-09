@@ -1,13 +1,2 @@
-﻿  ModulePhysics.cpp
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(41,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(161,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(162,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(205,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(314,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(315,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(317,50): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(317,39): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(431,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(432,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\ModulePhysics.cpp(438,27): warning C4244: 'return': conversión de 'float32' a 'int'; posible pérdida de datos
-  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Pinball\Debug\2D Physics - class 4.exe
+﻿  ModulePlayer.cpp
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\PinballBox2D\Pinball\Debug\2D Physics - class 4.exe

@@ -13,6 +13,10 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player");
+	grandeder =App->textures->Load("pinball/palancadergrande.png");
+	grandeizq=App->textures->Load("pinball/palancaizqgrande.png");
+	pequenaizq =App->textures->Load("pinball/palancaizqpequena.png");
+	pequenader=App->textures->Load("pinball/palancaderpequena.png");
 	return true;
 }
 
@@ -27,6 +31,10 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
+	App->renderer->Blit(grandeder, 246, 814);
+	App->renderer->Blit(grandeizq, 145, 818);
+	App->renderer->Blit(pequenaizq, 137, 730);
+	App->renderer->Blit(pequenader, 281, 720);
 	return UPDATE_CONTINUE;
 }
 
