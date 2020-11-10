@@ -2,7 +2,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "Box2D/Box2D/Box2D.h"
-
+#include "ModulePlayer.h"
 #define GRAVITY_X 0.0f
 #define GRAVITY_Y -7.0f
 
@@ -41,7 +41,7 @@ public:
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
-
+	void CreateFliper();
 	PhysBody* CreateCircle(int x, int y, int radius);
 	PhysBody* CreateStaticCircle(int x, int y, int radius);
 	PhysBody* CreateRectangle(int x, int y, int width, int height);
@@ -50,15 +50,15 @@ public:
 
 	// b2ContactListener ---
 	void BeginContact(b2Contact* contact);
-
+	b2RevoluteJointDef revoluteJointDef;
 	bool isDrawable = false;
-
+	b2World* world;
 private:
 
 	bool isClicked = false;
 	bool debug;
 	bool ballActivated = true;
-	b2World* world;
+	
 	b2MouseJoint* mouse_joint;
 	b2Body* ground;
 	PhysBody* ClickedBody;

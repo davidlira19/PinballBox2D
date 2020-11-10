@@ -4,6 +4,8 @@
 #include "p2Point.h"
 #include"ModuleTextures.h"
 #include"ModuleRender.h"
+#include"Box2D/Box2D/Box2D.h"
+#include "ModulePhysics.h"
 class ModulePlayer : public Module
 {
 public:
@@ -17,6 +19,7 @@ public:
 	SDL_Texture* pequenader;
 	SDL_Texture* grandeizq;
 	SDL_Texture* grandeder;
+	b2Body* grandederecha;
 public:
 
 };

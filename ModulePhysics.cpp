@@ -24,7 +24,43 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 ModulePhysics::~ModulePhysics()
 {
 }
+void ModulePhysics::CreateFliper() {
+	int x = 200;
+	int y = 700;
+	int w = 5;
+	int h = 5;
+	b2BodyDef ancla;
+	ancla.type = b2_staticBody;
+	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+	b2Body* body1 = world->CreateBody(&ancla);
+	b2FixtureDef fixture;
+	b2PolygonShape box;
+	box.SetAsBox(PIXEL_TO_METERS(w), PIXEL_TO_METERS(h));
+	fixture.shape = &box;
+	body1->CreateFixture(&fixture);
 
+	x = 215;
+	y = 700;
+	w = 30;
+	h = 10;
+	ancla.type = b2_dynamicBody;
+	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+	App->player->grandederecha = world->CreateBody(&ancla);
+	box.SetAsBox(PIXEL_TO_METERS(w), PIXEL_TO_METERS(h));
+	fixture.shape = &box;
+	fixture.density = 2;
+	App->player->grandederecha->CreateFixture(&fixture);
+	revoluteJointDef.Initialize(body1, App->player->grandederecha,body1->GetWorldCenter());
+	revoluteJointDef.lowerAngle = -0.25f * b2_pi;
+	revoluteJointDef.upperAngle = 0.25f * b2_pi;
+	revoluteJointDef.enableLimit = true;
+	revoluteJointDef.maxMotorTorque = 20.0f;
+	revoluteJointDef.motorSpeed = 5.0f;
+	revoluteJointDef.enableMotor = true;
+	revoluteJointDef.bodyA = body1;
+	revoluteJointDef.bodyB = App->player->grandederecha;
+	world->CreateJoint(&revoluteJointDef);
+}
 bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
@@ -55,7 +91,7 @@ bool ModulePhysics::Start()
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
 	//big_ball->CreateFixture(&fixture);
-
+	CreateFliper();
 	return true;
 }
 

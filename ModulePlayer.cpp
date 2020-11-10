@@ -37,6 +37,7 @@ update_status ModulePlayer::Update()
 	{
 		App->renderer->Blit(grandeizq, 145, 818,0,1.0f,(0,-50),10,15);
 		App->renderer->Blit(pequenaizq, 137, 730, 0, 1.0f, (0, -50),10,15);
+	
 	}
 	else 
 	{

@@ -1,13 +1,15 @@
 ﻿  ModulePhysics.cpp
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(43,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(187,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(188,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(231,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(352,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(353,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(355,50): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(355,39): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(472,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(473,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\ModulePhysics.cpp(479,27): warning C4244: 'return': conversión de 'float32' a 'int'; posible pérdida de datos
-  SDL Game.vcxproj -> C:\Users\adria\OneDrive\Documentos\GitHub\PinballBox2D\Debug\2D Physics - class 4.exe
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(79,8): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(223,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(224,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(267,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(388,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(389,39): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(391,50): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(391,39): warning C4244: 'argumento': conversión de 'float32' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(508,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(509,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+  ModulePlayer.cpp
+  Generando código...
+C:\Users\Usuario\Documents\GitHub\PinballBox2D\ModulePhysics.cpp(515,27): warning C4244: 'return': conversión de 'float32' a 'int'; posible pérdida de datos
+  SDL Game.vcxproj -> C:\Users\Usuario\Documents\GitHub\PinballBox2D\Debug\2D Physics - class 4.exe
