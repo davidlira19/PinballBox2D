@@ -29,6 +29,8 @@ bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
 
+	isDrawable = false;
+
 	world = new b2World(b2Vec2(GRAVITY_X, -GRAVITY_Y));
 	world->SetContactListener(this);
 
@@ -60,7 +62,14 @@ bool ModulePhysics::Start()
 // 
 update_status ModulePhysics::PreUpdate()
 {
-	LOG("Points: %d --- max: %d --- prev: %d", App->scene_intro->Points, App->scene_intro->maxPoints, App->scene_intro->prevPoints);
+	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
+	{
+		if (isDrawable == false)
+			isDrawable = true;
+		else
+			isDrawable = false;
+	}
+
 	b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
 	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000))
 	{
@@ -245,9 +254,6 @@ PhysBody* ModulePhysics::CreateChain(int x, int y, int* points, int size)
 // 
 update_status ModulePhysics::PostUpdate()
 {
-	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
-		debug = !debug;
-
 	if(!debug)
 		return UPDATE_CONTINUE;
 
@@ -264,7 +270,10 @@ update_status ModulePhysics::PostUpdate()
 				{
 					b2CircleShape* shape = (b2CircleShape*)f->GetShape();
 					b2Vec2 pos = f->GetBody()->GetPosition();
-					//App->renderer->DrawCircle(METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y), METERS_TO_PIXELS(shape->m_radius), 255, 0, 0);
+					if (isDrawable == true)
+					{
+						App->renderer->DrawCircle(METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y), METERS_TO_PIXELS(shape->m_radius), 255, 0, 0);
+					}
 				}
 				break;
 
@@ -278,14 +287,18 @@ update_status ModulePhysics::PostUpdate()
 					for(int32 i = 0; i < count; ++i)
 					{
 						v = b->GetWorldPoint(polygonShape->GetVertex(i));
-						if(i > 0)
-							//App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 100, 100);
+						if(i > 0 && isDrawable == true)
+							App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 100, 100);
 
 						prev = v;
 					}
 
 					v = b->GetWorldPoint(polygonShape->GetVertex(0));
-					//App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 100, 100);
+					if (isDrawable == true)
+					{
+						App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 255, 100, 100);
+					}
+					
 				}
 				break;
 
@@ -298,13 +311,17 @@ update_status ModulePhysics::PostUpdate()
 					for(int32 i = 0; i < shape->m_count; ++i)
 					{
 						v = b->GetWorldPoint(shape->m_vertices[i]);
-						if(i > 0)
-							//App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 100, 255, 100);
+						if(i > 0 && isDrawable == true)
+							App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 100, 255, 100);
 						prev = v;
 					}
 
 					v = b->GetWorldPoint(shape->m_vertices[0]);
-					//App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 100, 255, 100);
+					if (isDrawable == true)
+					{
+						App->renderer->DrawLine(METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y), METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y), 100, 255, 100);
+					}
+					
 				}
 				break;
 
@@ -316,7 +333,11 @@ update_status ModulePhysics::PostUpdate()
 
 					v1 = b->GetWorldPoint(shape->m_vertex0);
 					v1 = b->GetWorldPoint(shape->m_vertex1);
-					//App->renderer->DrawLine(METERS_TO_PIXELS(v1.x), METERS_TO_PIXELS(v1.y), METERS_TO_PIXELS(v2.x), METERS_TO_PIXELS(v2.y), 100, 100, 255);
+					if (isDrawable == true)
+					{
+						App->renderer->DrawLine(METERS_TO_PIXELS(v1.x), METERS_TO_PIXELS(v1.y), METERS_TO_PIXELS(v2.x), METERS_TO_PIXELS(v2.y), 100, 100, 255);
+					}
+					
 				}
 				break;
 			}
@@ -369,9 +390,12 @@ update_status ModulePhysics::PostUpdate()
 			MousePos.x = PIXEL_TO_METERS(App->input->GetMouseX());
 			MousePos.y = PIXEL_TO_METERS(App->input->GetMouseY());
 			mouse_joint->SetTarget(MousePos);
-
-			//App->renderer->DrawLine(METERS_TO_PIXELS(MousePos.x), METERS_TO_PIXELS(MousePos.y), METERS_TO_PIXELS(def.bodyB->GetPosition().x), METERS_TO_PIXELS(def.bodyB->GetPosition().y), 255, 0, 0);
+			if (isDrawable == true)
+			{
+				App->renderer->DrawLine(METERS_TO_PIXELS(MousePos.x), METERS_TO_PIXELS(MousePos.y), METERS_TO_PIXELS(def.bodyB->GetPosition().x), METERS_TO_PIXELS(def.bodyB->GetPosition().y), 255, 0, 0);
+			}
 		}
+			
 
 		// TODO 4: If the player releases the mouse button, destroy the joint
 		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_UP)

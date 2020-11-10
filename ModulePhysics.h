@@ -51,6 +51,8 @@ public:
 	// b2ContactListener ---
 	void BeginContact(b2Contact* contact);
 
+	bool isDrawable = false;
+
 private:
 
 	bool isClicked = false;
