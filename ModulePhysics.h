@@ -41,7 +41,7 @@ public:
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
-	void CreateFliper();
+	b2RevoluteJoint* CreateFliper(int x, int y, int w, int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer);
 	PhysBody* CreateCircle(int x, int y, int radius);
 	PhysBody* CreateStaticCircle(int x, int y, int radius);
 	PhysBody* CreateRectangle(int x, int y, int width, int height);
@@ -50,7 +50,14 @@ public:
 
 	// b2ContactListener ---
 	void BeginContact(b2Contact* contact);
-	b2RevoluteJointDef revoluteJointDef;
+	b2RevoluteJointDef grandederecha;
+	b2RevoluteJointDef grandeizquierda;
+	b2RevoluteJointDef pequenoderecha;
+	b2RevoluteJointDef pequenoizquierda;
+	b2RevoluteJoint* gd=nullptr;
+	b2RevoluteJoint* gi = nullptr;
+	b2RevoluteJoint* pd = nullptr;
+	b2RevoluteJoint* pi = nullptr;
 	bool isDrawable = false;
 	b2World* world;
 private:

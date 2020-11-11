@@ -6,7 +6,7 @@
 #include "ModuleSceneIntro.h"
 #include "p2Point.h"
 #include "math.h"
-
+#include"Box2D/Box2D/Dynamics/Joints/b2RevoluteJoint.h"
 #ifdef _DEBUG
 #pragma comment( lib, "Box2D/libx86/Debug/Box2D.lib" )
 #else
@@ -24,42 +24,39 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 ModulePhysics::~ModulePhysics()
 {
 }
-void ModulePhysics::CreateFliper() {
-	int x = 200;
-	int y = 700;
-	int w = 5;
-	int h = 5;
+b2RevoluteJoint* ModulePhysics::CreateFliper(int x,int y,int w,int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer) {
+	
 	b2BodyDef ancla;
 	ancla.type = b2_staticBody;
-	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+	ancla.position.Set(PIXEL_TO_METERS(x+15), PIXEL_TO_METERS(y));
 	b2Body* body1 = world->CreateBody(&ancla);
 	b2FixtureDef fixture;
 	b2PolygonShape box;
-	box.SetAsBox(PIXEL_TO_METERS(w), PIXEL_TO_METERS(h));
+	box.SetAsBox(PIXEL_TO_METERS(10), PIXEL_TO_METERS(10));
 	fixture.shape = &box;
 	body1->CreateFixture(&fixture);
 
-	x = 215;
-	y = 700;
-	w = 30;
-	h = 10;
 	ancla.type = b2_dynamicBody;
 	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
-	App->player->grandederecha = world->CreateBody(&ancla);
+	sticer = world->CreateBody(&ancla);
 	box.SetAsBox(PIXEL_TO_METERS(w), PIXEL_TO_METERS(h));
 	fixture.shape = &box;
 	fixture.density = 2;
-	App->player->grandederecha->CreateFixture(&fixture);
-	revoluteJointDef.Initialize(body1, App->player->grandederecha,body1->GetWorldCenter());
-	revoluteJointDef.lowerAngle = -0.25f * b2_pi;
-	revoluteJointDef.upperAngle = 0.25f * b2_pi;
-	revoluteJointDef.enableLimit = true;
-	revoluteJointDef.maxMotorTorque = 20.0f;
-	revoluteJointDef.motorSpeed = 5.0f;
-	revoluteJointDef.enableMotor = true;
-	revoluteJointDef.bodyA = body1;
-	revoluteJointDef.bodyB = App->player->grandederecha;
-	world->CreateJoint(&revoluteJointDef);
+
+	sticer->CreateFixture(&fixture);
+	def.Initialize(body1, sticer,body1->GetWorldCenter());
+	def.lowerAngle = -0.25f * b2_pi;
+	def.upperAngle = 0.25f * b2_pi;
+	def.enableLimit = true;
+	def.maxMotorTorque = 20.0f;
+	def.motorSpeed = 10.0f;
+	def.enableMotor = true;
+	def.bodyA = body1;
+	def.bodyB = sticer;
+	join =(b2RevoluteJoint*)world->CreateJoint(&def);
+	return join;
+	
+	
 }
 bool ModulePhysics::Start()
 {
@@ -91,7 +88,10 @@ bool ModulePhysics::Start()
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
 	//big_ball->CreateFixture(&fixture);
-	CreateFliper();
+	pi=CreateFliper(150,737,20,10, pequenoizquierda, pi,App->player->stricker1);
+	gi=CreateFliper(172, 826, 25, 10, grandeizquierda, gi, App->player->stricker2);
+	pd=CreateFliper(318, 727, 20, 10, pequenoderecha, pd, App->player->stricker3);
+	gd=CreateFliper(296, 821, 25, 10, grandederecha, gd, App->player->stricker4);
 	return true;
 }
 

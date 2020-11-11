@@ -19,7 +19,11 @@ public:
 	SDL_Texture* pequenader;
 	SDL_Texture* grandeizq;
 	SDL_Texture* grandeder;
-	b2Body* grandederecha;
+	b2Body* stricker1;
+	b2Body* stricker2;
+	b2Body* stricker3;
+	b2Body* stricker4;
+
 public:
 
 };

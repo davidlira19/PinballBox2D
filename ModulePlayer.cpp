@@ -37,12 +37,17 @@ update_status ModulePlayer::Update()
 	{
 		App->renderer->Blit(grandeizq, 145, 818,0,1.0f,(0,-50),10,15);
 		App->renderer->Blit(pequenaizq, 137, 730, 0, 1.0f, (0, -50),10,15);
+		
+		App->physics->pi->SetMotorSpeed(-15.0);
+		App->physics->gi->SetMotorSpeed(-15.0);
 	
 	}
 	else 
 	{
 		App->renderer->Blit(grandeizq, 145, 818);
 		App->renderer->Blit(pequenaizq, 137, 730);
+		App->physics->pi->SetMotorSpeed(15.0);
+		App->physics->gi->SetMotorSpeed(15.0);
 	}
 
 	//RIGHT BARS TEXTURES
@@ -50,11 +55,15 @@ update_status ModulePlayer::Update()
 	{
 		App->renderer->Blit(grandeder, 240, 818, 0, 1.0f, (0, 50), 50, 5);
 		App->renderer->Blit(pequenader, 271, 730, 0, 1.0f, (0, 50), 50, 15);
+		App->physics->pd->SetMotorSpeed(15.0);
+		App->physics->gd->SetMotorSpeed(15.0);
 	}
 	else
 	{
 		App->renderer->Blit(grandeder, 240, 818);
 		App->renderer->Blit(pequenader, 275, 730);
+		App->physics->pd->SetMotorSpeed(-15.0);
+		App->physics->gd->SetMotorSpeed(-15.0);
 	}
 
 	
