@@ -41,7 +41,7 @@ public:
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
-	b2RevoluteJoint* CreateFliper(int x, int y, int w, int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer);
+	b2RevoluteJoint* CreateFliper(int x, int y, int _x, int _y, int w, int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer);
 	PhysBody* CreateCircle(int x, int y, int radius);
 	PhysBody* CreateStaticCircle(int x, int y, int radius);
 	PhysBody* CreateRectangle(int x, int y, int width, int height);

@@ -24,20 +24,20 @@ ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app,
 ModulePhysics::~ModulePhysics()
 {
 }
-b2RevoluteJoint* ModulePhysics::CreateFliper(int x,int y,int w,int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer) {
+b2RevoluteJoint* ModulePhysics::CreateFliper(int x,int y,int _x,int _y,int w,int h, b2RevoluteJointDef def, b2RevoluteJoint* join, b2Body* sticer) {
 	
 	b2BodyDef ancla;
 	ancla.type = b2_staticBody;
-	ancla.position.Set(PIXEL_TO_METERS(x+15), PIXEL_TO_METERS(y));
+	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
 	b2Body* body1 = world->CreateBody(&ancla);
 	b2FixtureDef fixture;
 	b2PolygonShape box;
-	box.SetAsBox(PIXEL_TO_METERS(10), PIXEL_TO_METERS(10));
+	box.SetAsBox(PIXEL_TO_METERS(2), PIXEL_TO_METERS(2));
 	fixture.shape = &box;
 	body1->CreateFixture(&fixture);
 
 	ancla.type = b2_dynamicBody;
-	ancla.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+	ancla.position.Set(PIXEL_TO_METERS(_x), PIXEL_TO_METERS(_y));
 	sticer = world->CreateBody(&ancla);
 	box.SetAsBox(PIXEL_TO_METERS(w), PIXEL_TO_METERS(h));
 	fixture.shape = &box;
@@ -45,10 +45,10 @@ b2RevoluteJoint* ModulePhysics::CreateFliper(int x,int y,int w,int h, b2Revolute
 
 	sticer->CreateFixture(&fixture);
 	def.Initialize(body1, sticer,body1->GetWorldCenter());
-	def.lowerAngle = -0.25f * b2_pi;
-	def.upperAngle = 0.25f * b2_pi;
+	def.lowerAngle = -0.20f * b2_pi;
+	def.upperAngle = 0.20f * b2_pi;
 	def.enableLimit = true;
-	def.maxMotorTorque = 20.0f;
+	def.maxMotorTorque = 30.0f;
 	def.motorSpeed = 10.0f;
 	def.enableMotor = true;
 	def.bodyA = body1;
@@ -88,10 +88,11 @@ bool ModulePhysics::Start()
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
 	//big_ball->CreateFixture(&fixture);
-	pi=CreateFliper(150,737,20,10, pequenoizquierda, pi,App->player->stricker1);
-	gi=CreateFliper(172, 826, 25, 10, grandeizquierda, gi, App->player->stricker2);
-	pd=CreateFliper(318, 727, 20, 10, pequenoderecha, pd, App->player->stricker3);
-	gd=CreateFliper(296, 821, 25, 10, grandederecha, gd, App->player->stricker4);
+	/*pi=CreateFliper(145,742,160,740,25,6, pequenoizquierda, pi,App->player->stricker1);*/
+	pi = CreateFliper(165, 747, 170, 747, 15, 6, pequenoizquierda, pi, App->player->stricker1);
+	gi=CreateFliper(160, 830,160,830, 25, 6, grandeizquierda, gi, App->player->stricker2);
+	pd=CreateFliper(318, 738,319,739, 20, 5, pequenoderecha, pd, App->player->stricker3);
+	gd=CreateFliper(296, 821,297,821, 20, 5, grandederecha, gd, App->player->stricker4);
 	return true;
 }
 
