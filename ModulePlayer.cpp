@@ -54,8 +54,8 @@ update_status ModulePlayer::Update()
 	//RIGHT BARS TEXTURES
 	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 	{
-		App->renderer->Blit(grandeder, 240, 818, 0, 1.0f, (0, 50), 50, 5);
-		App->renderer->Blit(pequenader, 271, 730, 0, 1.0f, (0, 50), 50, 15);
+		App->renderer->Blit(grandeder, 247, 816, 0, 1.0f, (0, 50), 50, 5);
+		App->renderer->Blit(pequenader, 268, 735, 0, 1.0f, (0, 50), 50, 15);
 		App->physics->pd->SetMotorSpeed(15.0);
 		App->physics->gd->SetMotorSpeed(15.0);
 	}

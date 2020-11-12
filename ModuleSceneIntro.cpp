@@ -174,7 +174,7 @@ bool ModuleSceneIntro::Start()
 
 	walls.add(App->physics->CreateChain(0, 0, obstaculo_izq, 8));
 
-	int pieza_der_grande[14] = {
+	/*int pieza_der_grande[14] = {
 	295, 830,
 	295, 820,
 	402, 726,
@@ -184,32 +184,32 @@ bool ModuleSceneIntro::Start()
 	307, 836,
 	};
 
-	walls.add(App->physics->CreateChain(0, 0, pieza_der_grande, 14));
+	walls.add(App->physics->CreateChain(0, 0, pieza_der_grande, 14));*/
 
-	int pieza_izq_peq[12] = {
-	153, 738,
-	101, 694,
-	101, 601,
-	90, 602,
-	88, 698,
-	145, 744,
-	};
+	//int pieza_izq_peq[12] = {
+	//153, 738,
+	//101, 694,
+	//101, 601,
+	//90, 602,
+	//88, 698,
+	//145, 744,
+	//};
 
-	walls.add(App->physics->CreateChain(3, 0, pieza_izq_peq, 12));
+	//walls.add(App->physics->CreateChain(3, 0, pieza_izq_peq, 12));
 
-	int pieza_izq_grande[14] = {
-	171, 840,
-	170, 828,
-	70, 739,
-	70, 565,
-	54, 566,
-	55, 750,
-	162, 846,
-	};
+	//int pieza_izq_grande[14] = {
+	//171, 840,
+	//170, 828,
+	//70, 739,
+	//70, 565,
+	//54, 566,
+	//55, 750,
+	//162, 846,
+	//};
 
-	walls.add(App->physics->CreateChain(-4, 0, pieza_izq_grande, 14));
+	//walls.add(App->physics->CreateChain(-4, 0, pieza_izq_grande, 14));
 
-	int pieza_der_peq[12] = {
+	/*int pieza_der_peq[12] = {
 	314, 730,
 	366, 684,
 	366, 594,
@@ -218,7 +218,7 @@ bool ModuleSceneIntro::Start()
 	321, 738,
 	};
 
-	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 12));
+	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 12));*/
 
 	walls.add(App->physics->CreateStaticCircle(152, 445, 34));
 
