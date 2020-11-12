@@ -101,9 +101,9 @@ bool ModulePhysics::Start()
 	//big_ball->CreateFixture(&fixture);
 	/*pi=CreateFliper(145,742,160,740,25,6, pequenoizquierda, pi,App->player->stricker1);*/
 	pi = CreateFliper(148, 740, 165, 740, 25, 6, pequenoizquierda, pi, App->player->stricker1);
-	gi=CreateFliper(160, 830,177,830, 28, 6, grandeizquierda, gi, App->player->stricker2);
+	gi=CreateFliper(160, 830,177,830, 33, 6, grandeizquierda, gi, App->player->stricker2);
 	pd=CreateFliper(315, 740,298,740, 20, 6, pequenoderecha, pd, App->player->stricker3);
-	gd=CreateFliper(296, 830,279,830, 28, 6, grandederecha, gd, App->player->stricker4);
+	gd=CreateFliper(296, 830,279,830, 35, 6, grandederecha, gd, App->player->stricker4);
 	return true;
 }
 
