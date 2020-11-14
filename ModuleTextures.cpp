@@ -14,6 +14,11 @@ ModuleTextures::ModuleTextures(Application* app, bool start_enabled) : Module(ap
 ModuleTextures::~ModuleTextures()
 {}
 
+void ModuleTextures::GetTextureSize(const SDL_Texture* texture, uint& width, uint& height) const
+{
+	SDL_QueryTexture((SDL_Texture*)texture, NULL, NULL, (int*)&width, (int*)&height);
+}
+
 // Called before render is available
 bool ModuleTextures::Init()
 {

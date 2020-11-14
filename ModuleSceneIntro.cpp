@@ -6,7 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
-
+#include "ModuleFonts.h"
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	circle = box = rick = NULL;
@@ -30,7 +30,8 @@ bool ModuleSceneIntro::Start()
 	Points = 0;
 	maxPoints = 0;
 	prevPoints = 0;
-
+	char lookupTable_b[] = { "0123456789" };
+	blancas = App->fonts->Load("pinball/letras_blancas.png", lookupTable_b, 1);
 	circle = App->textures->Load("pinball/ball.png"); 
 	box = App->textures->Load("pinball/crate.png");
 	rick = App->textures->Load("pinball/rick_head.png");
@@ -254,7 +255,9 @@ bool ModuleSceneIntro::CleanUp()
 update_status ModuleSceneIntro::Update()
 {
 	App->renderer->Blit(background, 0, 0);
-
+	Points++;
+	sprintf_s(_scoreText, 10, "%6d", Points);
+	App->fonts->BlitText(50, 50, blancas, _scoreText);
 	/*if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		ray_on = !ray_on;

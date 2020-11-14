@@ -21,7 +21,8 @@ public:
 	p2List<PhysBody*> circles;
 	p2List<PhysBody*> boxes;
 	p2List<PhysBody*> walls;
-
+	int blancas = -1;
+	char _scoreText[7] = { "\0" };
 	PhysBody* sensor;
 	bool sensed;
 
