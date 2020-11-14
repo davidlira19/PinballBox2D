@@ -232,9 +232,9 @@ bool ModuleSceneIntro::Start()
 
 	walls.add(App->physics->CreateChain(0, 0, pieza_der_peq, 18));
 
-	walls.add(App->physics->CreateStaticCircle(152, 445, 34));
+	walls.add(App->physics->CreateStaticCircle(142, 495, 34));
 
-	walls.add(App->physics->CreateStaticCircle(336, 445, 34));
+	walls.add(App->physics->CreateStaticCircle(336, 495, 34));
 
 	//walls.add(App->physics->CreateStaticCircle(237, 575, 34));
 

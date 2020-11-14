@@ -40,7 +40,7 @@ update_status ModulePlayer::Update()
 	int pos_y = METERS_TO_PIXELS(App->scene_intro->circles.getFirst()->data->body->GetPosition().y);
 	if (pos_x >= 138 && pos_x <= 181 && pos_y >= 611 && pos_y <= 682)
 	{
-		b2Vec2 force = { 200,-200 };
+		b2Vec2 force = { 450,-450 };
 		b2Vec2 pos = { PIXEL_TO_METERS(pos_x),PIXEL_TO_METERS(pos_y) };
 		App->audio->PlayFx(collision_fx, 0);
 		App->scene_intro->circles.getFirst()->data->body->ApplyForce(force, pos, true);
@@ -48,7 +48,7 @@ update_status ModulePlayer::Update()
 	}
 	if (pos_x >= 289 && pos_x <= 325 && pos_y >= 611 && pos_y <= 682)
 	{
-		b2Vec2 force = { -200,-200 };
+		b2Vec2 force = { -450,-450 };
 		b2Vec2 pos = { PIXEL_TO_METERS(pos_x),PIXEL_TO_METERS(pos_y) };
 		App->audio->PlayFx(collision_fx, 0);
 		App->scene_intro->circles.getFirst()->data->body->ApplyForce(force, pos, true);
