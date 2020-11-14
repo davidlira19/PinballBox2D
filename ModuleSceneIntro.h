@@ -25,7 +25,7 @@ public:
 	char _scoreText[7] = { "\0" };
 	PhysBody* sensor;
 	bool sensed;
-
+	SDL_Texture* gameOver;
 	SDL_Texture* background;
 	SDL_Texture* circle;
 	SDL_Texture* box;

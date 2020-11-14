@@ -29,13 +29,26 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
-
+	App->scene_intro->Lifes = 3;
+	App->scene_intro->Points = 0;
+	App->scene_intro->dead = false;
+	App->physics->ballActivated = true;
+	
+	
 	return true;
 }
 
 // Update: draw background
 update_status ModulePlayer::Update()
 {
+	if (App->scene_intro->dead == true) {
+		App->renderer->Blit(App->scene_intro->gameOver,0,500);
+		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+		{
+			CleanUp();
+			
+		}
+	}
 	int pos_x = METERS_TO_PIXELS(App->scene_intro->circles.getFirst()->data->body->GetPosition().x);
 	int pos_y = METERS_TO_PIXELS(App->scene_intro->circles.getFirst()->data->body->GetPosition().y);
 	if (pos_x >= 138 && pos_x <= 181 && pos_y >= 611 && pos_y <= 682)

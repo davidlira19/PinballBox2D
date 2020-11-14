@@ -128,8 +128,11 @@ update_status ModulePhysics::PreUpdate()
 		}
 		if (App->scene_intro->Lifes >= 1)
 		{
-			if (App->scene_intro->Lifes <= 1) 
+			if (App->scene_intro->Lifes <= 1) {
 				App->scene_intro->dead = true;
+
+			}
+				
 
 			App->scene_intro->prevPoints = App->scene_intro->Points;
 			if (App->scene_intro->Points > App->scene_intro->maxPoints)
