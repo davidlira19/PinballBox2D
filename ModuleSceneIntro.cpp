@@ -24,19 +24,19 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
-
 	dead = false;
 	Lifes = 3;
 	Points = 0;
 	maxPoints = 0;
 	prevPoints = 0;
+	sumLifes = true;
 	char lookupTable_b[] = { "0123456789" };
 	blancas = App->fonts->Load("pinball/letras_blancas.png", lookupTable_b, 1);
 	circle = App->textures->Load("pinball/ball.png"); 
 	box = App->textures->Load("pinball/crate.png");
 	rick = App->textures->Load("pinball/rick_head.png");
 	background = App->textures->Load("pinball/pinball_fondo.png");
-	bonus_fx = App->audio->LoadFx("pinball/bonus.wav");
+	bonus_fx = App->audio->LoadFx("pinball/extra_life.wav");
 	music = App->audio->PlayMusic("pinball/spongebob_music.ogg");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 	int pinball_fondo[84] = {
@@ -254,6 +254,16 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
+	if (Points == 0)
+	{
+		sumLifes = true;
+	}
+	if (Points == 500 && sumLifes==true)
+	{
+		Lifes++;
+		App->audio->PlayFx(bonus_fx, 0);
+		sumLifes = false;
+	}
 	App->renderer->Blit(background, 0, 0);
 	
 	sprintf_s(_scoreText, 10, "%6d", Points);

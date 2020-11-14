@@ -119,7 +119,7 @@ update_status ModulePhysics::PreUpdate()
 	}
 
 	b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
-	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000))
+	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
 		if (App->scene_intro->Lifes > 1)
 		{

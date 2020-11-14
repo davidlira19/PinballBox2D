@@ -35,6 +35,7 @@ public:
 	p2Point<int> ray;
 	bool ray_on;
 
+	bool sumLifes;
 	int Lifes;
 	int Points;
 	int maxPoints;
