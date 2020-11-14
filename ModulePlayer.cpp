@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
+#include "ModuleSceneIntro.h"
 
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -18,6 +20,8 @@ bool ModulePlayer::Start()
 	grandeizq=App->textures->Load("pinball/palancaizqgrande.png");
 	pequenaizq =App->textures->Load("pinball/palancaizqpequena.png");
 	pequenader=App->textures->Load("pinball/palancaderpequena.png");
+	fliper = App->audio->LoadFx("pinball/flippers_fx.wav");
+	collision_fx = App->audio->LoadFx("pinball/collision.wav");
 	return true;
 }
 
@@ -32,10 +36,14 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-
 	//LEFT BARS TEXTURES
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
+	{
+		App->audio->PlayFx(fliper, 0);
+	}
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
+		
 		App->renderer->Blit(grandeizq, 145, 818,0,1.0f,(0,-50),10,15);
 		App->renderer->Blit(pequenaizq, 137, 730, 0, 1.0f, (0, -50),10,15);
 		
@@ -52,6 +60,10 @@ update_status ModulePlayer::Update()
 	}
 
 	//RIGHT BARS TEXTURES
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN)
+	{
+		App->audio->PlayFx(fliper, 0);
+	}
 	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 	{
 		App->renderer->Blit(grandeder, 247, 816, 0, 1.0f, (0, 50), 50, 5);

@@ -23,7 +23,8 @@ public:
 	b2Body* stricker2;
 	b2Body* stricker3;
 	b2Body* stricker4;
-
+	int fliper;
+	int collision_fx;
 public:
 
 };

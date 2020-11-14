@@ -101,7 +101,7 @@ bool ModulePhysics::Start()
 	//big_ball->CreateFixture(&fixture);
 	/*pi=CreateFliper(145,742,160,740,25,6, pequenoizquierda, pi,App->player->stricker1);*/
 	pi = CreateFliper(148, 740, 165, 740, 25, 6, pequenoizquierda, pi, App->player->stricker1);
-	gi=CreateFliper(160, 830,177,830, 33, 6, grandeizquierda, gi, App->player->stricker2);
+	gi=CreateFliper(160, 830,190,830, 33, 6, grandeizquierda, gi, App->player->stricker2);
 	pd=CreateFliper(315, 740,298,740, 20, 6, pequenoderecha, pd, App->player->stricker3);
 	gd=CreateFliper(296, 830,279,830, 35, 6, grandederecha, gd, App->player->stricker4);
 	return true;
@@ -140,7 +140,7 @@ update_status ModulePhysics::PreUpdate()
 			App->scene_intro->Lifes--;
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP)
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_UP)
 	{
 		if (ballActivated == true)
 		{
@@ -537,9 +537,23 @@ void ModulePhysics::BeginContact(b2Contact* contact)
 	PhysBody* physA = (PhysBody*)contact->GetFixtureA()->GetBody()->GetUserData();
 	PhysBody* physB = (PhysBody*)contact->GetFixtureB()->GetBody()->GetUserData();
 
-	if(physA && physA->listener != NULL)
+	if (physA && physA->listener != NULL)
+	{
 		physA->listener->OnCollision(physA, physB);
+		ballColiding = true;
+	}
+	else
+	{
+		ballColiding = false;
+	}
 
-	if(physB && physB->listener != NULL)
+	if (physB && physB->listener != NULL)
+	{
 		physB->listener->OnCollision(physB, physA);
+		ballColiding = true;
+	}
+	else
+	{
+		ballColiding = false;
+	}
 }

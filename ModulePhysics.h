@@ -60,12 +60,12 @@ public:
 	b2RevoluteJoint* pi = nullptr;
 	bool isDrawable = false;
 	b2World* world;
+	bool ballColiding;
 private:
 
 	bool isClicked = false;
 	bool debug;
 	bool ballActivated = true;
-	
 	b2MouseJoint* mouse_joint;
 	b2Body* ground;
 	PhysBody* ClickedBody;
