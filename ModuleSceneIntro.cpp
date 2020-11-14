@@ -236,7 +236,7 @@ bool ModuleSceneIntro::Start()
 
 	walls.add(App->physics->CreateStaticCircle(336, 445, 34));
 
-	walls.add(App->physics->CreateStaticCircle(237, 575, 34));
+	//walls.add(App->physics->CreateStaticCircle(237, 575, 34));
 
 	circles.add(App->physics->CreateCircle(485, 975, 11));
 
@@ -255,9 +255,9 @@ bool ModuleSceneIntro::CleanUp()
 update_status ModuleSceneIntro::Update()
 {
 	App->renderer->Blit(background, 0, 0);
-	Points++;
+	
 	sprintf_s(_scoreText, 10, "%6d", Points);
-	App->fonts->BlitText(50, 50, blancas, _scoreText);
+	App->fonts->BlitText(180, 70, blancas, _scoreText);
 	/*if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		ray_on = !ray_on;
