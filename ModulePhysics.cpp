@@ -128,10 +128,9 @@ update_status ModulePhysics::PreUpdate()
 	{
 		AutoDead = true;
 	}
-	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN || AutoDead == true)
+	LOG("%d", App->scene_intro->Lifes);
+	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
-		AutoDead = false;
-		DeadCont = 0;
 		if (App->scene_intro->Lifes > 1)
 		{
 			ball->SetTransform({ PIXEL_TO_METERS(485),PIXEL_TO_METERS(975) }, 0);
@@ -154,6 +153,16 @@ update_status ModulePhysics::PreUpdate()
 			App->scene_intro->Lifes--;
 		}
 	}
+
+	if (AutoDead == true)
+	{
+		AutoDead = false;
+		DeadCont = 0;
+
+		ball->SetTransform({ PIXEL_TO_METERS(485),PIXEL_TO_METERS(975) }, 0);
+		ballActivated = true;
+	}
+
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_UP)
 	{
 		if (ballActivated == true)
