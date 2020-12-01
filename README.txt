@@ -27,7 +27,7 @@ GAME DESCRIPTION:
 NEW FIXES:
 
     - Debug code has been removed.
-    - Ball doesn't get stuck on the kicker.
+    - Ball doesn't get stuck on the kicker (and it doesn't take a life)	
 
 LINK TO THE ORIGINAL GAME:
 
