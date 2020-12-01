@@ -128,7 +128,6 @@ update_status ModulePhysics::PreUpdate()
 	{
 		AutoDead = true;
 	}
-	LOG("%d", App->scene_intro->Lifes);
 	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
 		if (App->scene_intro->Lifes > 1)
