@@ -25,6 +25,11 @@ SPONGEBOB PINBALL
 	Spongebob Pinball is an amazing game created by 2C1V based on the Spongebob Squarepants original Series!
 	Hit the ball to win points and get 500 of them to win an extra life!
 
+  NEW FIXES:
+
+	- Debug code has been removed.
+	- Ball doesn't get stuck on the kicker.
+
   LINK TO THE ORIGINAL GAME:
 
 	This game is created and designed by the 2C1V team.
