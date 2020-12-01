@@ -62,6 +62,8 @@ public:
 	b2World* world;
 	bool ballColiding;
 	bool ballActivated = true;
+	bool AutoDead;
+	int DeadCont;
 private:
 
 	bool isClicked = false;

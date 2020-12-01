@@ -74,7 +74,8 @@ bool ModulePhysics::Start()
 	LOG("Creating Physics 2D environment");
 
 	isDrawable = false;
-
+	AutoDead = false;
+	DeadCont = 0;
 	world = new b2World(b2Vec2(GRAVITY_X, -GRAVITY_Y));
 	world->SetContactListener(this);
 
@@ -119,8 +120,18 @@ update_status ModulePhysics::PreUpdate()
 	}
 
 	b2Body* ball = App->scene_intro->circles.getFirst()->data->body;
-	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
+	if (DeadCont >= 1)
 	{
+		DeadCont++;
+	}
+	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 480 && METERS_TO_PIXELS(ball->GetPosition().x) <= 500) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 980 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000) && DeadCont >= 200)
+	{
+		AutoDead = true;
+	}
+	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 195 && METERS_TO_PIXELS(ball->GetPosition().x) <= 268) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 971 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000)||App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN || AutoDead == true)
+	{
+		AutoDead = false;
+		DeadCont = 0;
 		if (App->scene_intro->Lifes > 1)
 		{
 			ball->SetTransform({ PIXEL_TO_METERS(485),PIXEL_TO_METERS(975) }, 0);
@@ -149,9 +160,10 @@ update_status ModulePhysics::PreUpdate()
 		{
 			ball->ApplyForce({ 0,-200 }, ball->GetPosition(), true);
 			ballActivated = false;
+			DeadCont = 1;
 		}
 	}
-
+	LOG("%d %d", DeadCont, AutoDead);
 	world->Step(1.0f / 60.0f, 6, 2);
 
 	for(b2Contact* c = world->GetContactList(); c; c = c->GetNext())
