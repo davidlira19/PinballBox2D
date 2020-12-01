@@ -124,7 +124,7 @@ update_status ModulePhysics::PreUpdate()
 	{
 		DeadCont++;
 	}
-	if ((METERS_TO_PIXELS(ball->GetPosition().x) >= 480 && METERS_TO_PIXELS(ball->GetPosition().x) <= 500) && (METERS_TO_PIXELS(ball->GetPosition().y) >= 980 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000) && DeadCont >= 200)
+	if (METERS_TO_PIXELS(ball->GetPosition().x >= 450 && METERS_TO_PIXELS(ball->GetPosition().x) <= 500 && METERS_TO_PIXELS(ball->GetPosition().y) >= 970 && METERS_TO_PIXELS(ball->GetPosition().y) <= 1000) && DeadCont >= 100)
 	{
 		AutoDead = true;
 	}
@@ -163,9 +163,7 @@ update_status ModulePhysics::PreUpdate()
 			DeadCont = 1;
 		}
 	}
-	LOG("%d %d", DeadCont, AutoDead);
 	world->Step(1.0f / 60.0f, 6, 2);
-
 	for(b2Contact* c = world->GetContactList(); c; c = c->GetNext())
 	{
 		if(c->GetFixtureA()->IsSensor() && c->IsTouching())
